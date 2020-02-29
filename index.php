@@ -22,7 +22,7 @@
 <html lang="es">
 <head>
   <title>Inicio | Innovadores FUNDACITE Táchira</title>
-  <meta name="description" content="SIGMAEMCA Online Store | Servicio Integral General y Mantenimiento de Equipos Médicos Compañía Anónima">
+  <meta name="description" content="FUNDACITE Táchira | Innovadores">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--- Favicon --->
