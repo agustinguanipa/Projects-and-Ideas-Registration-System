@@ -1,23 +1,3 @@
-<?php
-  session_start();
-
-  $ident_usua = $_SESSION['ident_usua'];
-
-  include_once 'paginas/conexion_bd.php';
-
-  $query_user = mysqli_query($con,"SELECT * FROM tabma_usua WHERE ident_usua = $ident_usua");
-      
-  $result_user = mysqli_num_rows($query_user);
-
-  $data_user = mysqli_fetch_array($query_user);
-
-    $ident_usua = $data_user['ident_usua'];
-    $nomb1_usua = $data_user['nomb1_usua'];
-    $nomb2_usua = $data_user['nomb2_usua'];
-    $apel1_usua = $data_user['apel1_usua'];
-    $apel2_usua = $data_user['apel2_usua'];
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -62,8 +42,22 @@
 <!-- Header --->
 
 <header class="section-header">
+  <section class="section-intro padding-y-0">
+    <div class="intro-banner-wrap">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <img class="banner1 float-left" src="imagen/logo-mppct.png" alt="Logo MPPCT">
+          </div>
+          <div class="col-lg-6">
+            <img class="banner2 float-right" src="imagen/logo-mincty.png" alt="Logo MINCTY">
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
   <!-- Barra 1 --->
-  <nav class="navbar navbar-top navbar-expand-lg navbar-dark bg-primary">
+  <nav class="navbar navbar-top navbar-expand-lg navbar-dark bg-danger">
     <div class="container">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -71,7 +65,7 @@
       <div class="collapse navbar-collapse" id="navbarTop">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="index.php"><i class="fa fa-phone"></i> <b>Llámanos: +58 0276 3532978 </b></a>
+            <a class="nav-link" href="index.php" style="font-style: italic; font-weight: bold;">Registro de Innovadores FUNDACITE Táchira</a>
           </li>
         </ul>
         <ul class="navbar-nav">
@@ -89,139 +83,16 @@
     </div>
   </nav>
 
-  <!-- Barra 2 --->
-
-  <section class="header-main border-bottom">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-5-24 col-sm-5 col-4">
-          <div class="brand-wrap">
-            <a href="index.php" style="color: #000000; text-decoration: none;">
-              <img class="logo" src="imagen/logo-sigmaemca.png">
-              <h2 class="logo-text"><b>SIGMAEMCA</b></h2>
-            </a>
-          </div>
-        </div>
-        <div class="col-lg-13-24 col-sm-12 order-3 order-lg-2">
-          <form action="#">
-            <div class="input-group w-100">
-              <select class="custom-select"  name="category_name">
-                  <option value="">Todo</option>
-                  <option value="codex">Ofertas</option>
-                  <option value="comments">Equipos Médicos</option>
-                  <option value="content">Consumibles Médicos</option>
-                  <option value="content">Material Quirurgico</option>
-              </select>
-              <input type="text" class="form-control" style="width:60%;" placeholder="Buscar Productos">
-              <div class="input-group-append">
-                  <button class="btn btn-primary" type="submit">
-                    <i class="fa fa-search"></i>
-                  </button>
-              </div>
-              </div>
-          </form>
-        </div>
-        <div class="col-lg-6-24 col-sm-7 col-8  order-2  order-lg-3">
-          <div class="d-flex justify-content-end">
-            <?php  if (isset($_SESSION['loggedInUsuario'])) :  ?>
-              <div class="widget-header">
-                <small class="title text-muted">Bienvenido <?php echo $data_user['nomb1_usua'];?> <?php echo $data_user['apel1_usua'];?></small>
-                <div>
-                  <?php
-                    // Session is Set  
-                      if ($_SESSION['ident_tipo'] == 4)
-                    {
-                      echo "<a href='paginas/cliente/cliente_cuenta.php'>Mi Cuenta</a> <span class='dark-transp'>   | </span>";
-                    }else{
-                      echo "<a href='paginas/administrador/admin_panel.php'>Ir al Panel</a> <span class='dark-transp'>   | </span>";
-                      }
-                    
-                    echo "<a href='paginas/usuario/usuario_cerrar.php'>Cerrar Sesión</a>";
-                  ?>
-                </div>
-              </div>
-            <?php endif ?>
-            <?php  if (!isset($_SESSION['loggedInUsuario'])) : ?>
-              <div class="widget-header">
-                <small class="title text-muted">Bienvenido Visitante</small>
-                <div>
-                  <?php
-                    // Session is Not Set
-                    echo "<a href='paginas/usuario/usuario_inicio.php'>Iniciar Sesión</a> <span class='dark-transp'> | </span>";
-                    echo "<a href='paginas/cliente/cliente_registro.php'>Registrarse</a>"; 
-                  ?>
-                </div>
-              </div>
-            <?php endif ?>
-            <a href="paginas/cliente/cliente_cart.php" class="widget-header border-left pl-3 ml-3">
-              <div class="icontext">
-                <div class="icon-wrap icon-sm round border"><i class="fa fa-shopping-cart"></i></div>
-              </div>
-              <span class="badge badge-pill badge-danger notify">0</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <nav class="navbar navbar-main navbar-expand-lg navbar-light border-bottom" style="color: #000000;">
-  <div class="container">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="main_nav">
-      <ul class="navbar-nav">
-        <li class="nav-item dropdown" style="color: #000000;">
-          <a class="nav-link pl-0" data-toggle="dropdown" data-target="#dropdownMenu" href="#" style="color: #000000;"><strong> <i class="fa fa-bars"></i> &nbsp  Todas las Categorías</strong></a>
-          <div class="dropdown-menu" id="dropdownMenu">
-            <?php
-              include("paginas/conexion_bd.php");
-              $sql = "SELECT * FROM tabma_cate WHERE statu_cate = 1";
-              $res = mysqli_query($con, $sql);
-
-              while($row = mysqli_fetch_assoc($res)){
-            ?>
-              <a class="dropdown-item" href="paginas/principal/principal_categoria_detalle.php?id=<?php echo $row['ident_cate']; ?>"><?php echo $row['nombr_cate'] ?></a>
-            <?php
-              }
-            ?>
-          </div> 
-        </li>
-        <?php
-            include("paginas/conexion_bd.php");
-            $sql = "SELECT * FROM tabma_cate WHERE statu_cate = 1 LIMIT 7";
-            $res = mysqli_query($con, $sql);
-
-              while($row = mysqli_fetch_assoc($res)){
-            ?>
-            <li class="nav-item">
-              <a class="nav-link"href="paginas/principal/principal_categoria_detalle.php?id=<?php echo $row['ident_cate']; ?>" style="color: #000000;"><b><?php echo $row['nombr_cate'] ?></b></a>
-            </li>
-          <?php
-            }
-        ?>
-        <li class="nav-item">
-          <a class="nav-link text-primary" href="paginas/principal/principal_categoria.php"><b>Ver Todas</b></a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-</header>
-
-<!-- Main --->
-
 <section class="section-intro padding-y-sm">
 <div class="container">
   <div class="intro-banner-wrap">
     <div class="card-deck">
       <div class="card" align="center">
-        <div class="card-body index-background" style="padding: 60px;">
-          <h2 class="card-title text-white" style="font-size: 50px;"><b>SIGMAEMCA Online Store</b></h2>
-          <p class="card-text text-white"><b>Todo en Equipos Médicos, Material Médico Quirúrgico, Consumibles y Mucho Más </b></p>
-          <a href="paginas/principal/principal_categoria.php" class="btn btn-light btn-md"> <b>Ver Categorías</b><i class="fa fa-boxes ml-2"></i></a>
-          <a href="paginas/principal/principal_producto.php" class="btn btn-light btn-md"> <b>Ver Todos los Productos</b><i class="fa fa-shopping-bag ml-2"></i></a>
+        <div class="card-body index-background" style="padding: 40px;">
+          <h2 class="card-title text-white" style="font-size: 35px;"><b>Científicos e Innovadores del Estado Táchira</b></h2>
+          <p class="card-text text-white"><b>Registro de Científicos e Innovadores Tecnológicos </b></p>
+          <a href="paginas/principal/principal_categoria.php" class="btn btn-light btn-lg"> <b>Iniciar Sesión</b><i class="fa fa-sign-in-alt ml-2"></i></a>
+          <a href="paginas/principal/principal_producto.php" class="btn btn-light btn-lg"> <b>Registrarse</b><i class="fa fa-user-plus ml-2"></i></a>
         </div>
       </div>
     </div>
@@ -235,75 +106,35 @@
       <div class="row">
         <div class="col-md-4">  
           <figure class="item-feature">
-            <span class="text-primary"><i class="fa fa-2x fa-truck"></i></span>
+            <span class="text-danger"><i class="fa fa-2x fa-flag"></i></span>
             <figcaption class="pt-3">
-              <h5 class="title"><b>Envíos a todo el País</b></h5>
-              <p>Envíos a cualquier sitio de Venezuela y próximamente a Colombia y Pánama </p>
+              <h5 class="title"><b>Propuestas y Soluciones</b></h5>
+              <p>Búsqueda de Propuestas Innovadoras y Soluciones Productivas para Impulsar la Economía del País</p>
             </figcaption>
           </figure>
         </div>
         <div class="col-md-4">
           <figure  class="item-feature">
-            <span class="text-primary"><i class="fa fa-2x fas fa-globe"></i></span>  
+            <span class="text-danger"><i class="fa fa-2x fas fa-globe"></i></span>  
             <figcaption class="pt-3">
-              <h5 class="title"><b>Productos Nacionales e Importados de Calidad</b></h5>
-              <p>Ofrecemos los Mejores Productos Importados y de Fabricación Nacional
+              <h5 class="title"><b>Herramienta Estratégica del Gobierno Nacional</b></h5>
+              <p>Una Forma de Atender los Retos que tiene el País, especialmente en las Áreas de Agroalimentación, Agua Potable y Energía Eléctrica
                </p>
             </figcaption>
           </figure>
         </div>
           <div class="col-md-4">
           <figure  class="item-feature">
-            <span class="text-primary"><i class="fa fa-2x fa-credit-card"></i></span>
+            <span class="text-danger"><i class="fa fa-2x fa-book"></i></span>
             <figcaption class="pt-3">
-              <h5 class="title"><b>Distintas Opciones de Pago </b></h5>
-              <p>Recibimos todo tipo de Pago a tráves de las distintas plataformas
+              <h5 class="title"><b>Defensa de la Soberanía del Conocimiento </b></h5>
+              <p>Oportunidad para Reconocer y Activar Nuestras Capacidades como Pueblo y Nuestras Ideas para Vencer
                </p>
             </figcaption>
           </figure>
         </div>
       </div>
     </article>
-  </div>
-</section>
-
-<!-- Contenido -->
-
-<section class="section-content">
-  <div class="container">
-  <header class="section-heading" ali>
-    <h3 class="section-title" align="center"><b>Productos Populares</b></h3>
-    <hr>
-  </header>
-    <div class="row" align="center">
-      <?php
-        include("paginas/conexion_bd.php");
-        $sql = "SELECT * FROM tabma_prod WHERE statu_prod = 1 LIMIT 4";
-        $res = mysqli_query($con, $sql);
-          while($row = mysqli_fetch_assoc($res)){
-      ?>
-      <div class="col-lg-3">
-        <figure class="card card-product">
-          <div class="img-wrap"><?php echo '<img src="__DIR__ .'.$row['imag1_prod'].'" width="100">' ?></div>
-            <figcaption class="info-wrap" scope="r">
-              <a href="paginas/principal/principal_producto_detalle.php?ident_prod=<?php echo $row['ident_prod']; ?>" title=""><h5 class="title"><?php echo $row['nombr_prod'] ?></h5></a>
-              <p class="desc"><?php echo $row['desco_prod'] ?></p>
-            </figcaption>
-            <div class="bottom-wrap">
-              <div class="preci_prod-wrap h5">
-                <span class="preci_prod-new"><?php echo 'Bs. ' .$row['preci_prod'] ?></span>
-              </div>
-            </div>
-            <div class="bottom-wrap">
-              <a href="paginas/cliente/cliente_cart.php" class="btn btn-sm btn-primary float-right"><i class="fa fa-shopping-cart"></i> Agregar al Carrito</a>
-              <a href="paginas/principal/principal_producto_detalle.php?ident_prod=<?php echo $row['ident_prod']; ?>" class="btn btn-sm btn-success float-left"><i class="fa fa-eye"></i> Ver Producto</a>
-            </div>
-        </figure> 
-      </div>
-      <?php
-        }
-      ?>
-    </div>
   </div>
 </section>
 <br>
@@ -321,11 +152,10 @@
           <a href="https://facebook.com/agustin.guanipa" class="icono fab fa-facebook"></a>
           <a href="https://twitter.com/AgustinGuanipa" class="icono fab fa-twitter"></a>
           <a href="https://instagram.com/agustinguanipa/" class="icono fab fa-instagram"></a>
-          <a href="https://wa.me/584266908396" class="icono fab fa-whatsapp"></a>
         </div>
       <div class="col-sm-4" align="right">
-        <p class="text-sm-right"><b>SIGMAEMCA Servicio Integral de Mantenimiento Equipos Medicos Compañía Anonima</b></p>
-        <p class="text-sm-right">Copyright &copy 2019<br>
+        <p class="text-sm-right"><b>FUNDACITE Táchira</b></p>
+        <p class="text-sm-right">Copyright &copy 2020<br>
         </p>
       </div>
     </section>
