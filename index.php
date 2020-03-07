@@ -1,3 +1,21 @@
+<?php
+  session_start();
+
+  $ident_usua = $_SESSION['ident_usua'];
+
+  include_once 'paginas/conexion_bd.php';
+
+  $query_user = mysqli_query($con,"SELECT * FROM tab_usua WHERE ident_usua = $ident_usua");
+      
+  $result_user = mysqli_num_rows($query_user);
+
+  $data_user = mysqli_fetch_array($query_user);
+
+    $ident_usua = $data_user['ident_usua'];
+    $nombr_usua = $data_user['nombr_usua'];
+    $apeli_usua = $data_user['apeli_usua'];
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -57,7 +75,7 @@
     </div>
     </section>
   <!-- Barra 1 --->
-  <nav class="navbar navbar-top navbar-expand-lg navbar-dark bg-danger">
+  <nav class="navbar navbar-top navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -65,23 +83,44 @@
       <div class="collapse navbar-collapse" id="navbarTop">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="index.php" style="font-style: italic; font-weight: bold;">Registro de Innovadores FUNDACITE Táchira</a>
+            <a class="nav-link" href="index.php" style="font-style: italic; font-weight: bold;">FUNDACITE Táchira</a>
           </li>
         </ul>
         <ul class="navbar-nav">
           <li class="nav-item active">
             <a class="nav-link" href="index.php"><i class="fa fa-home"></i> <b>Inicio </b></a>
           </li>
+          <?php  if (isset($_SESSION['loggedInUsuario'])) :  ?>
+             <?php
+                // Session is Set  
+                  if ($_SESSION['ident_tipo'] == 3)
+                {
+                echo "<li class='nav-item'>
+                  <a class='nav-link' href='paginas/usuario/usuario_cuenta.php'><i class='fa fa-user'></i> <b>Mi Cuenta </b></a>
+                </li>";
+                }else{
+                  echo "<li class='nav-item'>
+                  <a class='nav-link' href='paginas/administrador/admin_panel.php'><i class='fa fa-cogs'></i> <b>Ir al Panel </b></a>
+                </li>";
+                }
+              ?>
           <li class="nav-item">
-            <a class="nav-link" href="paginas/principal/principal_nosotros.php"><i class="fa fa-info"></i> <b>Nosotros </b></a>
+            <a class="nav-link" href="paginas/sesion/usuario_cerrar.php"><i class="fa fa-sign-out-alt"></i> <b>Cerrar Sesión </b></a>
+          </li>
+          <?php endif ?>
+          <?php  if (!isset($_SESSION['loggedInUsuario'])) :  ?>
+          <li class="nav-item">
+            <a class="nav-link" href="paginas/sesion/usuario_inicio.php"><i class="fa fa-sign-in-alt"></i> <b>Iniciar Sesión </b></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="paginas/principal/principal_contacto.php"><i class="fa fa-phone"></i> <b>Contacto </b></a>
+            <a class="nav-link" href="paginas/usuario/usuario_registro.php"><i class="fa fa-user-plus"></i> <b>Registrarse </b></a>
           </li>
+          <?php endif ?>
         </ul>
       </div>
     </div>
   </nav>
+</header>
 
 <section class="section-intro padding-y-sm">
 <div class="container">
@@ -91,8 +130,13 @@
         <div class="card-body index-background" style="padding: 40px;">
           <h2 class="card-title text-white" style="font-size: 35px;"><b>Científicos e Innovadores del Estado Táchira</b></h2>
           <p class="card-text text-white"><b>Registro de Científicos e Innovadores Tecnológicos </b></p>
-          <a href="paginas/principal/principal_categoria.php" class="btn btn-light btn-lg"> <b>Iniciar Sesión</b><i class="fa fa-sign-in-alt ml-2"></i></a>
-          <a href="paginas/principal/principal_producto.php" class="btn btn-light btn-lg"> <b>Registrarse</b><i class="fa fa-user-plus ml-2"></i></a>
+          <?php  if (isset($_SESSION['loggedInUsuario'])) :  ?>
+            <p class="card-text text-white"><b>Bienvenido <?php echo $data_user['nombr_usua'];?> <?php echo $data_user['apeli_usua'];?></b></p>
+          <?php endif ?>
+          <?php  if (!isset($_SESSION['loggedInUsuario'])) :  ?>
+            <a href="paginas/sesion/usuario_inicio.php" class="btn btn-light btn-lg"> <b>Iniciar Sesión</b><i class="fa fa-sign-in-alt ml-2"></i></a>
+            <a href="paginas/usuario/usuario_registro.php" class="btn btn-light btn-lg"> <b>Registrarse</b><i class="fa fa-user-plus ml-2"></i></a>
+          <?php endif ?>
         </div>
       </div>
     </div>
@@ -106,7 +150,7 @@
       <div class="row">
         <div class="col-md-4">  
           <figure class="item-feature">
-            <span class="text-danger"><i class="fa fa-2x fa-flag"></i></span>
+            <span class="text-primary"><i class="fa fa-2x fa-flag"></i></span>
             <figcaption class="pt-3">
               <h5 class="title"><b>Propuestas y Soluciones</b></h5>
               <p>Búsqueda de Propuestas Innovadoras y Soluciones Productivas para Impulsar la Economía del País</p>
@@ -115,7 +159,7 @@
         </div>
         <div class="col-md-4">
           <figure  class="item-feature">
-            <span class="text-danger"><i class="fa fa-2x fas fa-globe"></i></span>  
+            <span class="text-primary"><i class="fa fa-2x fas fa-globe"></i></span>  
             <figcaption class="pt-3">
               <h5 class="title"><b>Herramienta Estratégica del Gobierno Nacional</b></h5>
               <p>Una Forma de Atender los Retos que tiene el País, especialmente en las Áreas de Agroalimentación, Agua Potable y Energía Eléctrica
@@ -125,7 +169,7 @@
         </div>
           <div class="col-md-4">
           <figure  class="item-feature">
-            <span class="text-danger"><i class="fa fa-2x fa-book"></i></span>
+            <span class="text-primary"><i class="fa fa-2x fa-book"></i></span>
             <figcaption class="pt-3">
               <h5 class="title"><b>Defensa de la Soberanía del Conocimiento </b></h5>
               <p>Oportunidad para Reconocer y Activar Nuestras Capacidades como Pueblo y Nuestras Ideas para Vencer
@@ -145,10 +189,10 @@
   <div class="container">
     <section class="footer-bottom row">
       <div class="col-sm-4" align="left"> 
-        <p><b>Diseñado y Desarrollado por: </b><br><a href="https://agustinguanipa.000webhostapp.com/" title="Carlos Agustin Guanipa Alvarez">Carlos Agustin Guanipa Alvarez</a></p>
+        <p><b>Ministerio del Poder Popular para Ciencia y Tecnología </b></p>
       </div>
       <div class="col-sm-4 form-group" align="center">
-          <p class="pie"><b>Redes Sociales</b></p>
+          <p class="text-sm"><b>Redes Sociales</b></p>
           <a href="https://facebook.com/agustin.guanipa" class="icono fab fa-facebook"></a>
           <a href="https://twitter.com/AgustinGuanipa" class="icono fab fa-twitter"></a>
           <a href="https://instagram.com/agustinguanipa/" class="icono fab fa-instagram"></a>

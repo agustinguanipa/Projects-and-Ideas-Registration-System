@@ -13,7 +13,7 @@ body {
   }
 .table-title {        
 	padding-bottom: 15px;
-	background: #007bff;
+	background: #2c6eb8;
 	color: #fff;
 	padding: 16px 30px;
 	margin: -20px -25px 10px;
@@ -123,10 +123,10 @@ table.table .avatar {
   color: #666;
 }	
 .pagination li.active a, .pagination li.active a.page-link {
-  background: #007BFF;
+  background: #2c6eb8;
 }
 .pagination li.active a:hover {        
-  background: #0C6ADF;
+  background: #2c6eb8;
 }
 .pagination li.disabled i {
   color: #ccc;
