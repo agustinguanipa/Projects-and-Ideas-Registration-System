@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 07-03-2020 a las 15:17:16
+-- Tiempo de generación: 10-03-2020 a las 12:16:13
 -- Versión del servidor: 5.7.26
 -- Versión de PHP: 7.3.7
 
@@ -13,6 +13,66 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `innft`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tab_area`
+--
+
+CREATE TABLE `tab_area` (
+  `ident_area` int(11) NOT NULL,
+  `nombr_area` varchar(45) DEFAULT NULL,
+  `statu_area` char(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tab_cate`
+--
+
+CREATE TABLE `tab_cate` (
+  `ident_cate` int(11) NOT NULL,
+  `nombr_cate` varchar(45) DEFAULT NULL,
+  `statu_cate` char(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tab_proy`
+--
+
+CREATE TABLE `tab_proy` (
+  `ident_proy` int(11) NOT NULL,
+  `nombr_proy` varchar(150) DEFAULT NULL,
+  `descr_proy` longtext,
+  `fecre_proy` datetime DEFAULT NULL,
+  `ident_cate` int(11) NOT NULL,
+  `ident_area` int(11) NOT NULL,
+  `ident_usua` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tab_tipo`
+--
+
+CREATE TABLE `tab_tipo` (
+  `ident_tipo` int(11) NOT NULL,
+  `nombr_tipo` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `tab_tipo`
+--
+
+INSERT INTO `tab_tipo` (`ident_tipo`, `nombr_tipo`) VALUES
+(1, 'ADMINISTRADOR'),
+(2, 'FUNCIONARIO'),
+(3, 'USUARIO');
 
 -- --------------------------------------------------------
 
@@ -59,6 +119,33 @@ INSERT INTO `tab_usua` (`ident_usua`, `tipce_usua`, `cedul_usua`, `nombr_usua`, 
 --
 
 --
+-- Indices de la tabla `tab_area`
+--
+ALTER TABLE `tab_area`
+  ADD PRIMARY KEY (`ident_area`);
+
+--
+-- Indices de la tabla `tab_cate`
+--
+ALTER TABLE `tab_cate`
+  ADD PRIMARY KEY (`ident_cate`);
+
+--
+-- Indices de la tabla `tab_proy`
+--
+ALTER TABLE `tab_proy`
+  ADD PRIMARY KEY (`ident_proy`),
+  ADD KEY `fk_tab_proy_tab_cate_idx` (`ident_cate`),
+  ADD KEY `fk_tab_proy_tab_area1_idx` (`ident_area`),
+  ADD KEY `fk_tab_proy_tab_usua1_idx` (`ident_usua`);
+
+--
+-- Indices de la tabla `tab_tipo`
+--
+ALTER TABLE `tab_tipo`
+  ADD PRIMARY KEY (`ident_tipo`);
+
+--
 -- Indices de la tabla `tab_usua`
 --
 ALTER TABLE `tab_usua`
@@ -70,6 +157,24 @@ ALTER TABLE `tab_usua`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `tab_cate`
+--
+ALTER TABLE `tab_cate`
+  MODIFY `ident_cate` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `tab_proy`
+--
+ALTER TABLE `tab_proy`
+  MODIFY `ident_proy` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `tab_tipo`
+--
+ALTER TABLE `tab_tipo`
+  MODIFY `ident_tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT de la tabla `tab_usua`
 --
 ALTER TABLE `tab_usua`
@@ -78,6 +183,14 @@ ALTER TABLE `tab_usua`
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `tab_proy`
+--
+ALTER TABLE `tab_proy`
+  ADD CONSTRAINT `fk_tab_proy_tab_area1` FOREIGN KEY (`ident_area`) REFERENCES `tab_area` (`ident_area`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_tab_proy_tab_cate` FOREIGN KEY (`ident_cate`) REFERENCES `tab_cate` (`ident_cate`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_tab_proy_tab_usua1` FOREIGN KEY (`ident_usua`) REFERENCES `tab_usua` (`ident_usua`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `tab_usua`
