@@ -25,7 +25,7 @@ function load(page){
 $( "#add_proyecto_admin" ).validate( {
 
     rules: {
-      nombr_proy {
+      nombr_proy: {
         required: true,
         minlength: 8
       },
@@ -114,8 +114,8 @@ $( "#add_proyecto_admin" ).validate( {
   }
 });
 
-$('#addAdminModal').on('hidden.bs.modal', function(e) {
-  $(this).find('#add_admin')[0].reset();
+$('#addProyectoAdminModal').on('hidden.bs.modal', function(e) {
+  $(this).find('#add_proyecto_admin')[0].reset();
   $(this).find('.is-valid').removeClass('is-valid');
 });
 
