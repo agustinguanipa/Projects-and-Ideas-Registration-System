@@ -17,7 +17,7 @@
 	    </div>
 	    <div class="row">
 	    	<div class="col-sm-8">
-					<a href="#addProyectoModal" class="btn btn-success float-left" data-toggle="modal"><i class="fa fa-plus"></i> Registrar Proyecto</a>
+					<a href="#addProyectoAdminModal" class="btn btn-success float-left" data-toggle="modal"><i class="fa fa-plus"></i> Registrar Proyecto</a>
 				</div>
 	    	<div class="col-sm-4">
 					<div id="custom-search-input">

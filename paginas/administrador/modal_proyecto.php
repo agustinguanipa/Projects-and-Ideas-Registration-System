@@ -79,6 +79,7 @@
                 <option disabled selected value>Seleccionar una Opción...</option>
                 <option value="ACADEMICO">ACADEMICO</option>
                 <option value="INVESTIGADOR">INVESTIGADOR</option>
+                <option value="INNOVADOR">INNOVADOR</option>
               </select>
             </div>
             <div class="col form-group">
