@@ -8,7 +8,7 @@ function load(page){
 	var parametros = {"action":"ajax","page":page,'query':query,'per_page':per_page};
 	$("#loader").fadeIn('slow');
 	$.ajax({
-		url:'../../ajax/administrador/listar_proyectos.php',
+		url:'../../ajax/proyecto/listar_proyectos_admin.php',
 		data: parametros,
 		 beforeSend: function(objeto){
 		$("#loader").html("Cargando...");
@@ -44,7 +44,7 @@ $( "#add_proyecto_admin" ).validate( {
         required: true
       },
       ident_usua: {
-        required: true
+        required: false
       },
     },
 
@@ -67,7 +67,7 @@ $( "#add_proyecto_admin" ).validate( {
       motor_proy: {
         required: "Seleccione una Opción"
       },
-      ident_tipo: {
+      ident_usua: {
         required: "Seleccione una Opción"
       },
     },

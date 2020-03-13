@@ -43,7 +43,7 @@
                 <option disabled selected value>Seleccionar una Opción...</option>
                   <?php
                     while($row1 = mysqli_fetch_array($result1)) {
-                      echo '<option value=>'.$row1['tipce_usua'].'-'.$row1['cedul_usua'].' - '.$row1['nombr_usua'].' '.$row1['apeli_usua'].'</option>';
+                      echo '<option value='.$row1['ident_usua'].'>'.$row1['tipce_usua'].'-'.$row1['cedul_usua'].' - '.$row1['nombr_usua'].' '.$row1['apeli_usua'].'</option>';
                     }
                   ?> 
               </select>
@@ -52,7 +52,7 @@
           <div class="form-row">
             <div class="col form-group">
               <label class="form-label" for="nombr_proy"><b>Nombre: </b></label>
-              <input type="text" class="form-control" name="nombr_proy" autocomplete="off" id="nombr_proy" maxlength="20" onkeyup="this.value = this.value.toUpperCase();">
+              <input type="text" class="form-control" name="nombr_proy" autocomplete="off" id="nombr_proy" maxlength="150" onkeyup="this.value = this.value.toUpperCase();">
             </div>
           </div>
           <div class="form-row">
@@ -100,6 +100,7 @@
                 <option value="INDUSTRIA MILITAR">INDUSTRIA MILITAR</option>
                 <option value="TELECOMUNICACIONES E INFORMATICA">TELECOMUNICACIONES E INFORMATICA</option>
                 <option value="BANCA, SEGUROS, MERCADO DE VALORES">BANCA, SEGUROS, MERCADO DE VALORES</option>
+                <option value="INDUSTRIAS BASICAS, ESTRATEGICAS Y SOCIALISTAS">INDUSTRIAS BASICAS, ESTRATEGICAS Y SOCIALISTAS</option>
               </select>
             </div>
           </div>
