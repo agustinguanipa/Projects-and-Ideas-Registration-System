@@ -58,12 +58,12 @@
       }
 
 		} else {
-			echo '<script type="text/javascript">alert("Contraseña Incorrecta");</script>';
-			echo '<script type="text/javascript">window.location = "usuario_inicio.php";</script>';
+			$_SESSION['message'] = '<b>¡Ocurrió un Error!</b> El Usuario y/o la Contraseña ingresados son incorrectos';
+			header('location: ../sesion/usuario_inicio.php');
 		}
 	} else {
-		echo '<script type="text/javascript">alert("Usuario Incorrecto");</script>';
-		echo '<script type="text/javascript">window.location = "usuario_inicio.php";</script>';
+		$_SESSION['message'] = '<b>¡Ocurrió un Error!</b> El Usuario y/o la Contraseña ingresados son incorrectos';
+		header('location: ../sesion/usuario_inicio.php');
 	}
 	$stmt->close();
 

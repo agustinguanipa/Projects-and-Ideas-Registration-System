@@ -30,11 +30,10 @@
 	    <img class="card-img-top" src="../../imagen/adminpanel-2.png" alt="Admin Panel Proyectos">
 	    <div class="card-body">
 	      <h5 class="card-title text-center"><b>Proyectos</b></h5>
-	      <p class="card-text text-center">Administrar Proyectos y Categorías</p>
+	      <p class="card-text text-center">Administrar Proyectos</p>
 	    </div>
 	    <div class="card-footer" align="center">
 	    	<a href="admin_proyectos.php" class="btn btn-sm btn-primary">Ver Proyectos</a>
-	    	<a href="admin_categorias.php" class="btn btn-sm btn-primary">Ver Categorías</a>
     	</div>
 	  </div>
 	  <div class="card">

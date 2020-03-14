@@ -45,11 +45,11 @@
             </div>
             <div class="col-4 form-group">
               <label class="form-label" for="nombr_usua"><b>Nombre: </b></label>
-              <input type="text" class="form-control" name="nombr_usua" autocomplete="off" id="nombr_usua" placeholder="Carlos" maxlength="20" onkeyup="this.value = this.value.toUpperCase();">
+              <input type="text" class="form-control" name="nombr_usua" autocomplete="off" id="nombr_usua" maxlength="20" onkeyup="this.value = this.value.toUpperCase();">
             </div>
             <div class="col-4 form-group">
               <label class="form-label" for="apeli_usua"><b>Apellido: </b></label>
-              <input type="text" class="form-control" name="apeli_usua" autocomplete="off" id="apeli_usua" placeholder="Guanipa" maxlength="20" onkeyup="this.value = this.value.toUpperCase();">
+              <input type="text" class="form-control" name="apeli_usua" autocomplete="off" id="apeli_usua" maxlength="20" onkeyup="this.value = this.value.toUpperCase();">
             </div>
           </div>
           <div class="form-row">

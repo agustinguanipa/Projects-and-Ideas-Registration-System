@@ -53,6 +53,26 @@
   <div class="container">
     <div class="form-group text-center">
       <div class="formulario-inicio">
+        <?php 
+                session_start();
+                if(isset($_SESSION['message'])){
+                  ?>
+                  <div class="alert alert-danger text-center" style="margin-top:20px;">
+                    <?php echo $_SESSION['message']; ?>
+                  </div>
+                  <?php
+
+                  unset($_SESSION['message']);
+                }else if(isset($_SESSION['error'])){
+                  ?>
+                  <div class="alert alert-danger text-center" style="margin-top:20px;">
+                    <?php echo $_SESSION['error']; ?>
+                  </div>
+                  <?php
+
+                  unset($_SESSION['error']);
+                }
+              ?>
         <form role="form" id="usuario_inicio" class=" justify-content-center" align="center" action="../sesion/usuario_autenticacion.php" method="post">
           <h3>Iniciar Sesión</h3>
           <hr class="my-4">
@@ -85,6 +105,14 @@
     </div>
   </div>
 </body>
+
+<script type="text/javascript">
+  window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove(); 
+    });
+}, 4000);
+</script>
 
 <script type="text/javascript">
   $(document).ready(function() {

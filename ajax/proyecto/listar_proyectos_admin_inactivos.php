@@ -6,15 +6,15 @@ $action = (isset($_REQUEST['action'])&& $_REQUEST['action'] !=NULL)?$_REQUEST['a
 if($action == 'ajax'){
 	$query = mysqli_real_escape_string($con,(strip_tags($_REQUEST['query'], ENT_QUOTES)));
 
-	$tables="tab_usua";
-	$tables2="tab_tipo";
+	$tables="tab_proy";
+	$tables2="tab_usua";
 	$campos="*";
-	$on="tab_usua.ident_tipo = tab_tipo.ident_tipo";
-	$sWhere=" (tab_usua.nombr_usua LIKE '%".$query."%' OR tab_usua.apeli_usua LIKE '%".$query."%') AND tab_usua.statu_usua = 0 AND tab_usua.ident_tipo != 3";
-	$sWhere.=" order by tab_usua.ident_usua";
+	$on="tab_proy.ident_usua = tab_usua.ident_usua";
+	$sWhere=" (tab_proy.nombr_proy LIKE '%".$query."%' OR tab_proy.descr_proy LIKE '%".$query."%') AND tab_proy.statu_proy = 0";
+	$sWhere.=" order by tab_proy.ident_proy";
 	
 	// Paginacion
-
+	
 	include '../pagination.php';
 
 	// Variables de la Paginación
@@ -23,14 +23,14 @@ if($action == 'ajax'){
 	$per_page = intval($_REQUEST['per_page']); // Cuantos Registros para Mostrar
 	$adjacents  = 4; //gap between pages after number of adjacents
 	$offset = ($page - 1) * $per_page;
-	// Contador del Total de Registros en la Tabla
+	//Contador del Total de Registros en la Tabla
 	$count_query   = mysqli_query($con,"SELECT count(*) AS numrows FROM $tables where $sWhere ");
 	if ($row= mysqli_fetch_array($count_query)){$numrows = $row['numrows'];}
 	else {echo mysqli_error($con);}
 	$total_pages = ceil($numrows/$per_page);
-	// Query de los Datos
+	//Query de los Datos
 	$query = mysqli_query($con,"SELECT $campos FROM $tables INNER JOIN $tables2 ON $on where $sWhere LIMIT $offset,$per_page");
-	// Loop del Query de los Datos
+	//Loop del Query de los Datos
 	
 	if ($numrows>0){		
 ?>
@@ -39,11 +39,11 @@ if($action == 'ajax'){
 			<thead>
 				<tr>
 					<th class='text-center'>#</th>
-					<th class='text-center'>Cédula</th>
-					<th class='text-center'>Nombres</th>
-					<th class='text-center'>Apellidos</th>
-					<th class='text-center'>Tipo</th>
-					<th class='text-center'>Usuario</th>
+					<th class='text-center'>Nombre</th>
+					<th class='text-center'>Innovador</th>
+					<th class='text-center'>Área</th>
+					<th class='text-center'>Motor</th>
+					<th class='text-center'>Fecha de Publicación</th>
 					<th class='text-center'>Restaurar</th>
 				</tr>
 			</thead>
@@ -51,41 +51,34 @@ if($action == 'ajax'){
 					<?php
 					$i=0;
 					$finales=0;
-					while($row = mysqli_fetch_array($query)){
-						$ident_admin=$row['ident_usua'];
-						$tipce_usua=$row['tipce_usua'];
-						$cedul_usua=$row['cedul_usua'];
+					while($row = mysqli_fetch_array($query)){	
+						$ident_proyecto=$row['ident_proy'];
+						$nombr_proy=$row['nombr_proy'];
+						$desco_proy=$row['desco_proy'];
+						$descr_proy=$row['descr_proy'];
+						$areaa_proy=$row['areaa_proy'];
+						$motor_proy=$row['motor_proy'];
+						$apeli_proy=$row['apeli_proy'];
+						$fecre_proy=$row['fecre_proy'];
 						$nombr_usua=$row['nombr_usua'];
 						$apeli_usua=$row['apeli_usua'];
-						$gener_usua=$row['gener_usua'];
-						$civil_usua=$row['civil_usua'];
-						$nivel_usua=$row['nivel_usua'];
-						$telef_usua=$row['telef_usua'];
-						$email_usua=$row['email_usua'];
-						$image_usua=$row['image_usua'];
-						$estad_usua=$row['estad_usua'];
-						$munic_usua=$row['munic_usua'];
-						$direc_usua=$row['direc_usua'];
-						$usuar_usua=$row['usuar_usua'];
-						$fecre_usua=$row['fecre_usua'];
-						$nombr_tipo=$row['nombr_tipo'];
 						$i++;		
 						$finales++;
 					?>	
 					<tr class="">
 						<td class='text-center'><?php echo $i;?></td>
-						<td class='text-center'><?php echo $tipce_usua;?>-<?php echo $cedul_usua;?></td>
-						<td class='text-center'><?php echo $nombr_usua;?></td>
-						<td class='text-center'><?php echo $apeli_usua;?></td>
-						<td class='text-center'><?php echo $nombr_tipo;?></td>
-						<td class='text-center'><?php echo $usuar_usua;?></td>
+						<td class='text-center'><?php echo $nombr_proy;?></td>
+						<td class='text-center'><?php echo $nombr_usua;?> <?php echo $apeli_usua;?></td>
+						<td class='text-center'><?php echo $areaa_proy;?></td>
+						<td class='text-center'><?php echo $motor_proy;?></td>
+						<td class='text-center'><?php echo $fecre_proy;?></td>
 	          <td class='text-center'>
-							<a href="#restaurarAdminModal" class="restaurar" data-toggle="modal" data-ident_usua="<?php echo $ident_admin;?>"><i class="fa fa-check" data-toggle="tooltip" title="Restaurar"></i></a>
+							<a href="#restaurarProyectoAdminModal" class="restaurar" data-toggle="modal" data-ident_proy="<?php echo $ident_proyecto;?>"><i class="fa fa-check" data-toggle="tooltip" title="Restaurar"></i></a>
 	          </td>
 					</tr>
 					<?php }?>
 					<tr>
-						<td colspan='9'> 
+						<td colspan='11'> 
 							<?php 
 								$inicios=$offset+1;
 								$finales+=$inicios -1;

@@ -102,23 +102,13 @@
             <span class="menu-collapsed">Innovadores</span>
         </div>
       </a>
-      <a href="#submenu1" data-toggle="collapse" aria-expanded="false" class="bg-light text-dark list-group-item list-group-item-action flex-column align-items-start tamano-elemento-sidebar">
-          <div class="d-flex w-100 justify-content-start align-items-center">
+      <a href="admin_proyectos.php" aria-expanded="false" class="bg-light text-dark list-group-item list-group-item-action flex-column align-items-start tamano-elemento-sidebar">
+        <div class="d-flex w-100 justify-content-start align-items-center">
             <span class="fa fa-lightbulb fa-fw mr-3"></span> 
             <span class="menu-collapsed">Proyectos</span>
-            <span class="fa fa-caret-down ml-auto"></span>
-          </div>
-      </a>
-        <!-- Submenu -->
-        <div id='submenu1' class="collapse sidebar-submenu">
-          <a href="admin_proyectos.php" class="list-group-item list-group-item-action bg-light text-dark">
-            <span class="menu-collapsed">Proyectos</span>
-          </a>
-          <a href="admin_categorias.php" class="list-group-item list-group-item-action bg-light text-dark">
-            <span class="menu-collapsed">Categorías</span>
-          </a>
         </div>
-      <a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="bg-light text-dark list-group-item list-group-item-action flex-column align-items-start tamano-elemento-sidebar">
+      </a>
+      <a href="#submenu1" data-toggle="collapse" aria-expanded="false" class="bg-light text-dark list-group-item list-group-item-action flex-column align-items-start tamano-elemento-sidebar">
           <div class="d-flex w-100 justify-content-start align-items-center">
             <span class="fa fa-cogs fa-fw mr-3"></span> 
             <span class="menu-collapsed">Administración</span>
@@ -126,7 +116,7 @@
           </div>
       </a>
         <!-- Submenu -->
-        <div id='submenu2' class="collapse sidebar-submenu">
+        <div id='submenu1' class="collapse sidebar-submenu">
           <a href="admin_admins.php" class="list-group-item list-group-item-action bg-light text-dark">
             <span class="menu-collapsed">Usuarios</span>
           </a>

@@ -7,7 +7,7 @@
 	    <div class="table-title">
 	        <div class="row">
             <div class="col-sm-6">
-							<h2>Administrar <b>Proyectos</b></h2>
+							<h2>Administrar <b>Proyectos Inactivos</b></h2>
 						</div>
 						<div class="col-sm-6">
 							<a href="admin_proyectos.php" class="btn btn-light text-dark"><i class="fa fa-lightbulb"></i> Proyectos Activos</a>
@@ -17,7 +17,7 @@
 	    </div>
 	    <div class="row">
 	    	<div class="col-sm-8">
-					<a href="#addProyectoAdminModal" class="btn btn-success float-left" data-toggle="modal"><i class="fa fa-plus"></i> Registrar Proyecto</a>
+					
 				</div>
 	    	<div class="col-sm-4">
 					<div id="custom-search-input">
@@ -41,7 +41,7 @@
 </div>
 <!-- Modal HTML -->
 <?php include("modal_proyecto_admin.php");?>
-<script src="../../js/script_proyecto_admin.js"></script>
+<script src="../../js/script_proyecto_admin_inactivo.js"></script>
 </body>
   
 <?php require_once('../includes/admin_footer.php');  ?>

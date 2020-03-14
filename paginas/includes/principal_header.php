@@ -71,11 +71,8 @@
   </script>
   <!--- Bootstrap 4 File Style 2 --->
   <script type="text/javascript" src="../../libs/bootstrap-filestyle-2.1.0/src/bootstrap-filestyle.min.js"> </script>
-  <script>
-  function goBack() {
-    window.history.back();
-  }
-  </script>
+  <!--- CKEditor --->
+  <script src="../../libs/ckeditor-basic/ckeditor.js"></script>
 </head>
 
 <body>

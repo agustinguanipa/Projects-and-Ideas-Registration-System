@@ -49,7 +49,7 @@
                       </div>
                   </div>
                   <div class="col-sm-8">
-                    <a href="#addAdminModal" class="btn btn-success float-left" data-toggle="modal"><i class="fa fa-plus"></i> Registrar Proyecto</a>
+                    <a href="#addProyectoUsuarioModal" class="btn btn-success float-left" data-toggle="modal"><i class="fa fa-plus"></i> Registrar Proyecto</a>
                   </div>
                   <div class='col-sm-4 float-right'>
                     <div id="custom-search-input">
@@ -64,26 +64,20 @@
                     </div>
                   </div>
                   <div class='clearfix'></div>
-                  <hr>  
-                  <div class="table-responsive">
-                    <table class="table table-striped table-hover">
-                      <thead>
-                        <tr>
-                          <th class='text-center'>ID</th>
-                          <th class='text-center'>Nombre</th>
-                          <th class='text-center'>Descripción</th>
-                          <th class='text-center'>Fecha</th>
-                        </tr>
-                      </thead>
-                    </table>
-                  </div>
+                  <hr>
+                  <div id="loader"></div><!-- Carga de datos ajax aqui -->
+                  <div id="resultados"></div><!-- Carga de datos ajax aqui -->
+                  <div class='outer_div'></div><!-- Carga de datos ajax aqui -->
                 </div>
               </div>
           </main>
         </div>
       </div> 
     </section>
+<!-- Modal HTML -->
+<?php include("../administrador/modal_proyecto_usuario.php");?>
+<script src="../../js/script_proyecto_usuario.js"></script>
 </body>
 
-<?php require_once('../includes/usuario_footer.php');  ?>
+<?php require_once('../includes/principal_footer.php');  ?>
 

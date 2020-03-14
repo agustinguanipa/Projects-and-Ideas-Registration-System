@@ -36,7 +36,7 @@ if($action == 'ajax'){
 		<table class="table table-striped table-hover">
 			<thead>
 				<tr>
-					<th class='text-center'>ID</th>
+					<th class='text-center'>#</th>
 					<th class='text-center'>Cédula</th>
 					<th class='text-center'>Nombres</th>
 					<th class='text-center'>Apellidos</th>
@@ -49,7 +49,8 @@ if($action == 'ajax'){
 				</tr>
 			</thead>
 			<tbody>	
-					<?php 
+					<?php
+					$i=0;
 					$finales=0;
 					while($row = mysqli_fetch_array($query)){	
 						$ident_usuario=$row['ident_usua'];
@@ -67,11 +68,12 @@ if($action == 'ajax'){
 						$munic_usua=$row['munic_usua'];
 						$direc_usua=$row['direc_usua'];
 						$usuar_usua=$row['usuar_usua'];
-						$fecre_usua=$row['fecre_usua'];			
+						$fecre_usua=$row['fecre_usua'];
+						$i++;			
 						$finales++;
 					?>	
 					<tr class="">
-						<td class='text-center'><?php echo $ident_usuario;?></td>
+						<td class='text-center'><?php echo $i;?></td>
 						<td class='text-center'><?php echo $tipce_usua;?>-<?php echo $cedul_usua;?></td>
 						<td class='text-center'><?php echo $nombr_usua;?></td>
 						<td class='text-center'><?php echo $apeli_usua;?></td>

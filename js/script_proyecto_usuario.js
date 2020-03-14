@@ -8,7 +8,7 @@ function load(page){
 	var parametros = {"action":"ajax","page":page,'query':query,'per_page':per_page};
 	$("#loader").fadeIn('slow');
 	$.ajax({
-		url:'../../ajax/proyecto/listar_proyectos_admin.php',
+		url:'../../ajax/proyecto/listar_proyectos_usuario.php',
 		data: parametros,
 		 beforeSend: function(objeto){
 		$("#loader").html("Cargando...");
@@ -22,7 +22,7 @@ function load(page){
 
 /* Add */
 
-$( "#add_proyecto_admin" ).validate( {
+$( "#add_proyecto_usuario" ).validate( {
 
     rules: {
       nombr_proy: {
@@ -43,15 +43,12 @@ $( "#add_proyecto_admin" ).validate( {
       motor_proy: {
         required: true
       },
-      ident_usua: {
-        required: false
-      },
     },
 
     messages: {
       nombr_proy: {
-        required: "Ingrese su Nombre",
-        minlength: "Tu Nombre debe contener al menos 8 caracteres"
+        required: "Ingrese el Nombre",
+        minlength: "El Nombre debe contener al menos 8 caracteres"
       },
       desco_proy: {
         required: "Ingrese una Descripción Breve",
@@ -65,9 +62,6 @@ $( "#add_proyecto_admin" ).validate( {
         required: "Seleccione una Opción"
       },
       motor_proy: {
-        required: "Seleccione una Opción"
-      },
-      ident_usua: {
         required: "Seleccione una Opción"
       },
     },
@@ -98,7 +92,7 @@ $( "#add_proyecto_admin" ).validate( {
 
     $.ajax({
       type: "POST",
-      url: "../../ajax/proyecto/guardar_proyecto_admin.php",
+      url: "../../ajax/proyecto/guardar_proyecto_usuario.php",
       data: formData,
       contentType: false,
       processData: false,
@@ -108,131 +102,78 @@ $( "#add_proyecto_admin" ).validate( {
       success: function(datos){
       $("#resultados").html(datos);
       load(1);
-      $('#addProyectoAdminModal').modal('hide');
+      $('#addProyectoUsuarioModal').modal('hide');
       }           
     });
   }
 });
 
-$('#addProyectoAdminModal').on('hidden.bs.modal', function(e) {
-  $(this).find('#add_proyecto_admin')[0].reset();
+$('#addProyectoUsuarioModal').on('hidden.bs.modal', function(e) {
+  $(this).find('#add_proyecto_usuario')[0].reset();
   $(this).find('.is-valid').removeClass('is-valid');
 });
 
 /* Edit */
 
-$('#editAdminModal').on('show.bs.modal', function (event) {
+$('#editProyectoUsuarioModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget) // Button that triggered the modal
-  var nombr_usua = button.data('nombr_usua') 
-  $('#edit_nombr_usua').val(nombr_usua)
-  var apeli_usua = button.data('apeli_usua') 
-  $('#edit_apeli_usua').val(apeli_usua)
-  var gener_usua = button.data('gener_usua') 
-  $('#edit_gener_usua').val(gener_usua)
-  var civil_usua = button.data('civil_usua') 
-  $('#edit_civil_usua').val(civil_usua)
-  var nivel_usua = button.data('nivel_usua') 
-  $('#edit_nivel_usua').val(nivel_usua)
-  var telef_usua = button.data('telef_usua') 
-  $('#edit_telef_usua').val(telef_usua)
-  var email_usua = button.data('email_usua') 
-  $('#edit_email_usua').val(email_usua)
-  var image_usua = button.data('image_usua') 
-  $('#edit_image_usua').val(image_usua)
-  var estad_usua = button.data('estad_usua') 
-  $('#edit_estad_usua').val(estad_usua)
-  var munic_usua = button.data('munic_usua') 
-  $('#edit_munic_usua').val(munic_usua)
-  var direc_usua = button.data('direc_usua') 
-  $('#edit_direc_usua').val(direc_usua)
+  var nombr_proy = button.data('nombr_proy') 
+  $('#edit_nombr_proy').val(nombr_proy)
+  var desco_proy = button.data('desco_proy') 
+  $('#edit_desco_proy').val(desco_proy)
+  var descr_proy = button.data('descr_proy') 
+  $('#edit_descr_proy').val(descr_proy)
+  var areaa_proy = button.data('areaa_proy') 
+  $('#edit_areaa_proy').val(areaa_proy)
+  var motor_proy = button.data('motor_proy') 
+  $('#edit_motor_proy').val(motor_proy)
   var ident_usua = button.data('ident_usua') 
-  $('#edit_id').val(ident_usua)
+  $('#edit_ident_usua').val(ident_usua)
+  var ident_proy = button.data('ident_proy') 
+  $('#edit_id').val(ident_proy)
 })
 
-$( "#edit_admin" ).validate( {
+$( "#edit_proyecto_usuario" ).validate( {
 
     rules: {
-      edit_nombr_usua: {
+      edit_nombr_proy: {
         required: true,
-        lettersonly: true,
-        minlength: 2
+        minlength: 8
       },
-      edit_apeli_usua: {
+      edit_desco_proy: {
         required: true,
-        lettersonly: true,
-        minlength: 2
+        minlength: 8
       },
-      edit_gener_usua: {
+      edit_descr_proy: {
+        required: true,
+        minlength: 20
+      },
+      edit_areaa_proy: {
         required: true
       },
-      edit_civil_usua: {
+      edit_motor_proy: {
         required: true
-      },
-      edit_nivel_usua: {
-        required: true
-      },
-      edit_telef_usua: {
-        required: true,
-        number: false,
-        minlength: 15
-      },
-      edit_email_usua: {
-        required: true,
-        email: true
-      },
-      edit_estad_usua: {
-        required: true
-      },
-      edit_munic_usua: {
-        required: true
-      },
-      edit_direc_usua: {
-        required: true,
-        minlength: 10
       },
     },
 
     messages: {
-      edit_nombr_usua: {
-        required: "Ingrese su Nombre",
-        lettersonly: "Tu Nombre solo debe contener letras sin espacios",
-        minlength: "Tu Nombre debe contener al menos 2 caracteres"
+      edit_nombr_proy: {
+        required: "Ingrese el Nombre",
+        minlength: "El Nombre debe contener al menos 8 caracteres"
       },
-      edit_apeli_usua: {
-        required: "Ingrese su Apellido",
-        lettersonly: "Tu Apellido solo debe contener letras sin espacios",
-        minlength: "Tu Apellido debe contener al menos 2 caracteres"
+      edit_desco_proy: {
+        required: "Ingrese una Descripción Breve",
+        minlength: "Tu Apellido debe contener al menos 8 caracteres"
       },
-      edit_gener_usua: {
+      edit_descr_proy: {
+        required: "Ingrese una Descripción",
+        minlength: "Tu Apellido debe contener al menos 20 caracteres"
+      },
+      edit_areaa_proy: {
         required: "Seleccione una Opción"
       },
-      edit_civil_usua: {
+      edit_motor_proy: {
         required: "Seleccione una Opción"
-      },
-      edit_nivel_usua: {
-        required: "Seleccione una Opción"
-      },
-      edit_telef_usua: {
-        required: "Seleccione una Opción"
-      },
-      edit_telef_usua: {
-        required: "Ingrese un Número de Teléfono Valido",
-        number: "Ingrese un Número de Teléfono Valido",
-        minlength: "Ingrese un Número de Teléfono Valido"
-      },
-      edit_email_usua: {
-        required: "Ingrese una Dirección de Correo Electrónico Válida",
-        email: "Ingrese una Dirección de Correo Electrónico Válida"
-      },
-      edit_estad_usua: {
-        required: "Seleccione una Opción"
-      },
-      edit_munic_usua: {
-        required: "Seleccione una Opción"
-      },
-      edit_direc_usua: {
-        required: "Ingrese su Dirección",
-        minlength: "Tu Dirección debe contener al menos 10 caracteres"
       },
     },
 
@@ -261,7 +202,7 @@ $( "#edit_admin" ).validate( {
 
     $.ajax({
       type: "POST",
-      url: "../../ajax/administrador/editar_admin.php",
+      url: "../../ajax/proyecto/editar_proyecto_usuario.php",
       data: parametros,
        beforeSend: function(objeto){
         $("#resultados").html("Enviando...");
@@ -269,31 +210,31 @@ $( "#edit_admin" ).validate( {
       success: function(datos){
       $("#resultados").html(datos);
       load(1);
-      $('#editAdminModal').modal('hide');
+      $('#editProyectoUsuarioModal').modal('hide');
       }                     
     });
   }
 });
 
-$('#editAdminModal').on('hidden.bs.modal', function(e) {
-  $(this).find('#edit_admin')[0].reset();
+$('#editProyectoUsuarioModal').on('hidden.bs.modal', function(e) {
+  $(this).find('#edit_proyecto_usuario')[0].reset();
   $(this).find('.is-valid').removeClass('is-valid');
 });
 
 
 /* Delete */
 
-$('#deleteAdminModal').on('show.bs.modal', function (event) {
+$('#deleteProyectoUsuarioModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget) // Button that triggered the modal
-  var ident_usua = button.data('ident_usua') 
-  $('#delete_id').val(ident_usua)
+  var ident_proy = button.data('ident_proy') 
+  $('#delete_id').val(ident_proy)
 })
 
-$( "#delete_admin" ).submit(function( event ) {
+$( "#delete_proyecto_usuario" ).submit(function( event ) {
   var parametros = $(this).serialize();
   $.ajax({
       type: "POST",
-      url: "../../ajax/administrador/eliminar_admin.php",
+      url: "../../ajax/proyecto/eliminar_proyecto_usuario.php",
       data: parametros,
        beforeSend: function(objeto){
         $("#resultados").html("Enviando...");
@@ -301,15 +242,11 @@ $( "#delete_admin" ).submit(function( event ) {
       success: function(datos){
       $("#resultados").html(datos);
       load(1);
-      $('#deleteAdminModal').modal('hide');
+      $('#deleteProyectoUsuarioModal').modal('hide');
       }
   });
   event.preventDefault();
 });
-
-/* Masks */
-
-$('.telef-mask').mask('(0000) 000 0000');
 
 
 
