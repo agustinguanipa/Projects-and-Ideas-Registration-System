@@ -53,7 +53,6 @@ if($action == 'ajax'){
 					$finales=0;
 					while($row = mysqli_fetch_array($query)){
 						$ident_admin=$row['ident_usua'];
-						$tipce_usua=$row['tipce_usua'];
 						$cedul_usua=$row['cedul_usua'];
 						$nombr_usua=$row['nombr_usua'];
 						$apeli_usua=$row['apeli_usua'];
@@ -74,7 +73,7 @@ if($action == 'ajax'){
 					?>	
 					<tr class="">
 						<td class='text-center'><?php echo $i;?></td>
-						<td class='text-center'><?php echo $tipce_usua;?>-<?php echo $cedul_usua;?></td>
+						<td class='text-center'><?php echo $cedul_usua;?></td>
 						<td class='text-center'><?php echo $nombr_usua;?></td>
 						<td class='text-center'><?php echo $apeli_usua;?></td>
 						<td class='text-center'><?php echo $nombr_tipo;?></td>

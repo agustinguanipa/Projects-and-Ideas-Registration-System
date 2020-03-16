@@ -25,9 +25,6 @@ function load(page){
 $( "#add_usuario" ).validate( {
 
     rules: {
-      tipce_usua: {
-        required: true
-      },
       cedul_usua: {
         required: true,
         minlength: 6,
@@ -108,9 +105,6 @@ $( "#add_usuario" ).validate( {
     },
 
     messages: {
-      tipce_usua: {
-        required: "Seleccione una Opción"
-      },
       cedul_usua: {
         required: "Ingrese una Cédula de Identidad",
         minlength: "Tu Cédula de Identidad debe contener al menos 6 caracteres",
@@ -411,4 +405,11 @@ $( "#delete_usuario" ).submit(function( event ) {
 
 $('.telef-mask').mask('(0000) 000 0000');
 
+('.cedul-mask').mask('C-00000000', {
+  translation: {
+    'C': {
+      pattern: /[V\E]/, optional: false
+    }
+  }
+});
 

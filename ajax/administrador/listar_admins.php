@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require_once ("../../paginas/conexion_bd.php");
 
 $action = (isset($_REQUEST['action'])&& $_REQUEST['action'] !=NULL)?$_REQUEST['action']:'';
@@ -55,7 +57,6 @@ if($action == 'ajax'){
 					$finales=0;
 					while($row = mysqli_fetch_array($query)){
 						$ident_admin=$row['ident_usua'];
-						$tipce_usua=$row['tipce_usua'];
 						$cedul_usua=$row['cedul_usua'];
 						$nombr_usua=$row['nombr_usua'];
 						$apeli_usua=$row['apeli_usua'];
@@ -70,13 +71,14 @@ if($action == 'ajax'){
 						$direc_usua=$row['direc_usua'];
 						$usuar_usua=$row['usuar_usua'];
 						$fecre_usua=$row['fecre_usua'];
+						$ident_tipo=$row['ident_tipo'];
 						$nombr_tipo=$row['nombr_tipo'];
 						$i++;			
 						$finales++;
 					?>	
 					<tr class="">
 						<td class='text-center'><?php echo $i;?></td>
-						<td class='text-center'><?php echo $tipce_usua;?>-<?php echo $cedul_usua;?></td>
+						<td class='text-center'><?php echo $cedul_usua;?></td>
 						<td class='text-center'><?php echo $nombr_usua;?></td>
 						<td class='text-center'><?php echo $apeli_usua;?></td>
 						<td class='text-center'><?php echo $nombr_tipo;?></td>
@@ -86,7 +88,7 @@ if($action == 'ajax'){
 	          </td>
 						<td class='text-center'>
 							<?php  
-								if ($ident_admin != 1) {
+								if ($ident_admin != 1 && $_SESSION['ident_tipo'] == 1) {
 							?>
 								<a href="#"  data-target="#editAdminModal" class="edit" data-toggle="modal" data-nombr_usua="<?php echo $nombr_usua?>" data-apeli_usua="<?php echo $apeli_usua?>" data-gener_usua="<?php echo $gener_usua?>" data-civil_usua="<?php echo $civil_usua?>" data-nivel_usua="<?php echo $nivel_usua?>" data-telef_usua="<?php echo $telef_usua?>" data-email_usua="<?php echo $email_usua?>" data-estad_usua="<?php echo $estad_usua?>" data-munic_usua="<?php echo $munic_usua?>" data-direc_usua="<?php echo $direc_usua?>" data-usuar_usua="<?php echo $usuar_usua?>" data-ident_usua="<?php echo $ident_admin; ?>"><i class="fa fa-edit" data-toggle="tooltip" title="Editar" ></i></a>
 							<?php	
@@ -95,7 +97,7 @@ if($action == 'ajax'){
 	          </td>
 	          <td class='text-center'>
 	          	<?php  
-								if ($ident_admin != 1) {
+								if ($ident_admin != 1 && $_SESSION['ident_tipo'] == 1) {
 							?>
 								<a href="#deleteAdminModal" class="delete" data-toggle="modal" data-ident_usua="<?php echo $ident_admin;?>"><i class="fa fa-trash" data-toggle="tooltip" title="Eliminar"></i></a>
 							<?php	

@@ -37,7 +37,6 @@ $result_user = mysqli_num_rows($query_user);
 $data_user = mysqli_fetch_array($query_user);
 
 	$ident_usua = $data_user['ident_usua'];
-  $tipce_usua=$data_user['tipce_usua'];
   $cedul_usua=$data_user['cedul_usua'];
   $nombr_usua=$data_user['nombr_usua'];
   $apeli_usua=$data_user['apeli_usua'];

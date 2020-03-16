@@ -1,5 +1,15 @@
-<?php require_once('../includes/admin_header.php'); ?>
+<?php 
 
+session_start();
+
+if ($_SESSION['ident_tipo'] != 1) {
+    header('Location: admin_panel.php');
+    exit();
+  }
+
+require_once('../includes/admin_header.php'); 
+
+?>
 <!-- Contenido -->
 
 <div class="container-fluid">

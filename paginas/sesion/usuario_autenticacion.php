@@ -21,7 +21,7 @@
 	}
 
 	// Prepare our SQL, preparing the SQL statement will prevent SQL injection.
-	if ($stmt = $con->prepare('SELECT u.ident_usua, u.contr_usua, u.nombr_usua, u.apeli_usua, u.gener_usua, u.telef_usua, u.email_usua, u.image_usua, u.ident_tipo, r.ident_tipo, r.nombr_tipo FROM tab_usua u INNER JOIN tab_tipo r ON u.ident_tipo = r.ident_tipo WHERE u.usuar_usua = ?')) {
+	if ($stmt = $con->prepare('SELECT u.ident_usua, u.contr_usua, u.nombr_usua, u.apeli_usua, u.gener_usua, u.telef_usua, u.email_usua, u.image_usua, u.statu_usua, u.ident_tipo, r.ident_tipo, r.nombr_tipo FROM tab_usua u INNER JOIN tab_tipo r ON u.ident_tipo = r.ident_tipo WHERE u.usuar_usua = ? AND u.statu_usua  = 1')) {
 		// Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
 		$stmt->bind_param('s', $_POST['usuar_usua']);
 		$stmt->execute();
@@ -30,7 +30,7 @@
 	}
 
 	if ($stmt->num_rows > 0) {
-		$stmt->bind_result($ident_usua, $contr_usua, $nombr_usua, $apeli_usua, $gener_usua, $telef_usua, $email_usua, $image_usua, $ident_tipo, $ident_tipo, $nombr_tipo);
+		$stmt->bind_result($ident_usua, $contr_usua, $nombr_usua, $apeli_usua, $gener_usua, $telef_usua, $email_usua, $image_usua, $statu_usua, $ident_tipo, $ident_tipo, $nombr_tipo);
 		$stmt->fetch();
 		// Account exists, now we verify the password.
 		// Note: remember to use password_hash in your registration file to store the hashed passwords.
@@ -46,6 +46,7 @@
 			$_SESSION['email'] = $email_usua;
 			$_SESSION['imagen'] = $image_usua;
 			$_SESSION['user'] = $_POST['usuar_usua'];
+			$_SESSION['statu_usua'] = $statu_usua;
 			$_SESSION['ident_usua'] = $ident_usua;
 			$_SESSION['ident_tipo'] = $ident_tipo;
 			$_SESSION['ident_tipo'] = $ident_tipo;

@@ -32,16 +32,9 @@
 				</div>
 				<div class="modal-body">					
 					<div class="form-row">
-            <div class="col-1 form-group">
-              <label class="form-label" for="tipce_usua"><b>Tipo: </b></label>
-              <select class="form-control" id="tipce_usua" name="tipce_usua">
-                <option disabled selected value>...</option>
-                <option value="V">V</option>
-              </select>
-            </div>
-            <div class="col-3 form-group">
+            <div class="col-4 form-group">
               <label class="form-label" for="cedul_usua"><b>Cédula de Identidad: </b></label>
-              <input type="text" class="form-control" name="cedul_usua" autocomplete="off" id="cedul_usua" placeholder="12345678" maxlength="10" onkeyup="this.value = this.value.toUpperCase();">
+              <input type="text" class="form-control cedul-mask" name="cedul_usua" autocomplete="off" id="cedul_usua" placeholder="V-12345678" maxlength="10" onkeyup="this.value = this.value.toUpperCase();">
             </div>
             <div class="col-4 form-group">
               <label class="form-label" for="nombr_usua"><b>Nombre: </b></label>

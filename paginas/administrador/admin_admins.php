@@ -10,14 +10,26 @@
 							<h2>Administrar <b>Usuarios</b></h2>
 						</div>
 						<div class="col-sm-6">
+						<?php  
+							if ($data_user['ident_usua'] == 1) {
+						?>
 							<a href="admin_admins.php" class="btn btn-light text-dark"><i class="fa fa-users"></i> Usuarios Activos</a>
 							<a href="admin_admins_inactivos.php" class="btn btn-light text-dark"><i class="fa fa-trash"></i> Usuarios Inactivos</a>
+						<?php	
+							}
+						?>
 						</div>
 	        </div>
 	    </div>
 	    <div class="row">
 	    	<div class="col-sm-8">
-					<a href="#addAdminModal" class="btn btn-success float-left" data-toggle="modal"><i class="fa fa-plus"></i> Registrar Usuario</a>
+	    		<?php  
+						if ($data_user['ident_usua'] == 1) {
+					?>
+						<a href="#addAdminModal" class="btn btn-success float-left" data-toggle="modal"><i class="fa fa-plus"></i> Registrar Usuario</a>
+					<?php	
+						}
+					?>
 				</div>
 	    	<div class="col-sm-4">
 					<div id="custom-search-input">

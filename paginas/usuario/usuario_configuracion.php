@@ -19,7 +19,6 @@
     $ident_usua = $data_user['ident_usua'];
     $ident_tipo = $data_user['ident_tipo'];
     $nombr_tipo = $data_user['nombr_tipo'];
-    $tipce_usua=$row['tipce_usua'];
     $cedul_usua=$row['cedul_usua'];
     $nombr_usua=$row['nombr_usua'];
     $apeli_usua=$row['apeli_usua'];

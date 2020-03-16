@@ -22,6 +22,7 @@
     $ident_usua = $data_user['ident_usua'];
     $nombr_usua = $data_user['nombr_usua'];
     $apeli_usua = $data_user['apeli_usua'];
+    $ident_tipo = $data_user['ident_tipo'];
 ?>
 
 <!DOCTYPE html>

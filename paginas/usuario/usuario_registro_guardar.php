@@ -5,7 +5,6 @@
 		
 	require_once ("../conexion_bd.php");
 
-	$tipce_usua = mysqli_real_escape_string($con,(strip_tags($_POST["tipce_usua"],ENT_QUOTES)));
 	$cedul_usua = mysqli_real_escape_string($con,(strip_tags($_POST["cedul_usua"],ENT_QUOTES)));
   $nombr_usua = mysqli_real_escape_string($con,(strip_tags($_POST["nombr_usua"],ENT_QUOTES)));
   $apeli_usua = mysqli_real_escape_string($con,(strip_tags($_POST["apeli_usua"],ENT_QUOTES)));
@@ -31,7 +30,7 @@
 		$destino1 = "../../imagen/perfil/user.png";
 	}
 
-    $sql = "INSERT INTO tab_usua(tipce_usua, cedul_usua, nombr_usua, apeli_usua, gener_usua, civil_usua, nivel_usua, telef_usua, email_usua, image_usua, estad_usua, munic_usua, direc_usua, usuar_usua, contr_usua, statu_usua, ident_tipo) VALUES ('$tipce_usua','$cedul_usua','$nombr_usua','$apeli_usua','$gener_usua','$civil_usua','$nivel_usua','$telef_usua','$email_usua','$destino1','$estad_usua','$munic_usua','$direc_usua','$usuar_usua','$contr_usua','$statu_usua','$ident_tipo')";
+    $sql = "INSERT INTO tab_usua(cedul_usua, nombr_usua, apeli_usua, gener_usua, civil_usua, nivel_usua, telef_usua, email_usua, image_usua, estad_usua, munic_usua, direc_usua, usuar_usua, contr_usua, statu_usua, ident_tipo) VALUES ('$cedul_usua','$nombr_usua','$apeli_usua','$gener_usua','$civil_usua','$nivel_usua','$telef_usua','$email_usua','$destino1','$estad_usua','$munic_usua','$direc_usua','$usuar_usua','$contr_usua','$statu_usua','$ident_tipo')";
     
     $query = mysqli_query($con,$sql);
     
