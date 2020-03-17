@@ -33,7 +33,7 @@
 			    <table class="table">
 			    	<thead class="text-center">
 			    		<th> # </th>
-			    		<th> Cedula de Identidad </th>
+			    		<th> Cédula de Identidad </th>
 			    		<th> Nombre </th>
 			    		<th> Apellido </th>
 			    		<th> Status </th>
@@ -86,7 +86,7 @@
 			    	<thead class="text-center">
 			    		<th> # </th>
 			    		<th> Proyecto </th>
-			    		<th> Area </th>
+			    		<th> Área </th>
 			    		<th> Motor </th>
 			    		<th> Status </th>
 			    	</thead>
@@ -126,20 +126,19 @@
 					</table>
 				<?php
 				?>
+
 				<div class="alert alert-success" role="alert">
-					  <h4 class="alert-heading"><b>Importación Exitosa</b></h4>
-					  <hr>
-					  <p class="mb-0">Se han importado un total de <b><?php echo $total_counter;?></b> registros.</p>
-					</div>
-					<?php
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<p><b>¡Importación Exitosa!</b> Se han importado un total de <b><?php echo $total_counter;?></b> registros.</p>
+				</div>
+			<?php
 				
 			}
 		else if(!isset($_FILES["file"]) && $_FILES["file"]["size"] < 0){
-			echo '<div class="alert alert-danger" role="alert">
-					  <h4 class="alert-heading"><b>Importación Exitosa</b></h4>
-					  <hr>
-					  <p class="mb-0">Se han importado un total de <b><?php echo $total_counter;?></b> registros.</p>
-					</div>';
+			echo '<div class="alert alert-success" role="alert">
+							<button type="button" class="close" data-dismiss="alert">&times;</button>
+							<p><b>¡Importación Exitosa!</b> Se han importado un total de <b><?php echo $total_counter;?></b> registros.</p>
+						</div>';
 		}
 	}	
 }
