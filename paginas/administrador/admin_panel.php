@@ -17,7 +17,7 @@
 <div class="container-fluid">
 	<div class="card-deck">
 	  <div class="card">
-	    <img class="card-img-top" src="../../imagen/adminpanel-1.png" alt="Admin Panel Usuarios">
+	    <img class="card-img-top" src="../../imagen/adminpanel-1.jpg" alt="Admin Panel Usuarios">
 	    <div class="card-body">
 	      <h5 class="card-title text-center"><b>Científicos e Innovadores</b></h5>
 	      <p class="card-text text-center">Administrar Usuarios Registrados</p>
@@ -27,7 +27,7 @@
     	</div>
 	  </div>
 	  <div class="card">
-	    <img class="card-img-top" src="../../imagen/adminpanel-2.png" alt="Admin Panel Proyectos">
+	    <img class="card-img-top" src="../../imagen/adminpanel-2.jpg" alt="Admin Panel Proyectos">
 	    <div class="card-body">
 	      <h5 class="card-title text-center"><b>Proyectos</b></h5>
 	      <p class="card-text text-center">Administrar Proyectos</p>
@@ -37,7 +37,7 @@
     	</div>
 	  </div>
 	  <div class="card">
-	    <img class="card-img-top" src="../../imagen/adminpanel-3.png" alt="Admin Panel Sistema">
+	    <img class="card-img-top" src="../../imagen/adminpanel-3.jpg" alt="Admin Panel Sistema">
 	    <div class="card-body">
 	      <h5 class="card-title text-center"><b>Sistema</b></h5>
 	      <p class="card-text text-center">Administración de Usuarios, Soporte y Mantenimiento</p>

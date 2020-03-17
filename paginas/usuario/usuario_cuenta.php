@@ -55,7 +55,7 @@
                 <article class="card-group">
                   <div class="card-deck justify-content-center" align="center">
                     <div class="card card-lg">
-                      <img src="../../imagen/micuenta-5.png" class="card-img-top" alt="...">
+                      <img src="../../imagen/micuenta-5.jpg" class="card-img-top" alt="...">
                       <div class="card-body">
                         <h5 class="card-title"><b>Proyectos</b></h5>
                         <p class="card-text">Mira, Publica y Haz Seguimiento a tus Proyectos</p>
@@ -65,7 +65,7 @@
                       </div>
                     </div>
                     <div class="card card-lg">
-                      <img src="../../imagen/micuenta-6.png" class="card-img-top" alt="...">
+                      <img src="../../imagen/micuenta-6.jpg" class="card-img-top" alt="...">
                       <div class="card-body">
                         <h5 class="card-title"><b>Configuración</b></h5>
                         <p class="card-text">Edita tus Datos Personales</p>
