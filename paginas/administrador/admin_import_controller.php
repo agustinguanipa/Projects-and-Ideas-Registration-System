@@ -95,15 +95,16 @@
 		        	while (($column2 = fgetcsv($file2, 10000, ";")) !== FALSE) { 
 
 			          $counter2++;
-	              $nombr_proy = $column2[16];
-	              $desco_proy = $column2[17];
-	              $descr_proy = $column2[18];
-	              $areaa_proy = $column2[19];
-	              $motor_proy = $column2[20];
-	              $statu_proy = $column2[21];
-	              $ident_usua = $column2[22];
+			          $ident_proy = $column2[16];
+	              $nombr_proy = $column2[17];
+	              $desco_proy = $column2[18];
+	              $descr_proy = $column2[19];
+	              $areaa_proy = $column2[20];
+	              $motor_proy = $column2[21];
+	              $statu_proy = $column2[22];
+	              $ident_usua = $column2[23];
 
-              	$sql2 =	"INSERT INTO tab_proy (nombr_proy, desco_proy, descr_proy, areaa_proy, motor_proy, statu_proy, ident_usua) VALUES ('$nombr_proy', '$desco_proy', '$descr_proy', '$areaa_proy', '$motor_proy', '$statu_proy', '$ident_usua') ";
+              	$sql2 =	"REPLACE INTO tab_proy (ident_proy, nombr_proy, desco_proy, descr_proy, areaa_proy, motor_proy, statu_proy, ident_usua) VALUES ('$ident_proy', '$nombr_proy', '$desco_proy', '$descr_proy', '$areaa_proy', '$motor_proy', '$statu_proy', '$ident_usua') ";
               	$result2 = $this->con->query($sql2);
 
               	if($result2 == 1): 
@@ -111,6 +112,7 @@
               
             		<tr class="text-center">
 									<td> <?php echo $counter2; ?> </td>
+									<td> <?php echo $ident_proy; ?></td>
 									<td> <?php echo $nombr_proy; ?></td>
 									<td> <?php echo $areaa_proy; ?> </td>
 									<td> <?php echo $motor_proy; ?> </td>

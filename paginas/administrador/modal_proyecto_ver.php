@@ -39,7 +39,6 @@ $data_user = mysqli_fetch_array($query_user);
   $motor_proy = $data_user['motor_proy'];
   $fecre_proy = $data_user['fecre_proy'];
   $ident_usua = $data_user['ident_usua'];
-  $tipce_usua = $data_user['tipce_usua'];
   $cedul_usua = $data_user['cedul_usua'];
   $nombr_usua = $data_user['nombr_usua'];
   $apeli_usua = $data_user['apeli_usua'];
@@ -67,7 +66,7 @@ $data_user = mysqli_fetch_array($query_user);
         <div class="form-row">
           <div class="col form-group">
             <label class="form-label">Innovador: </label><br>
-            <label><?php echo $tipce_usua; ?>-<?php echo $cedul_usua; ?> - <?php echo $nombr_usua; ?> <?php echo $apeli_usua; ?></label>
+            <label><?php echo $cedul_usua; ?> - <?php echo $nombr_usua; ?> <?php echo $apeli_usua; ?></label>
           </div>
         </div>
         <hr>
