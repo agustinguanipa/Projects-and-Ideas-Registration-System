@@ -60,7 +60,7 @@
 	              $statu_usua = $column1[14];
 	              $ident_tipo = $column1[15];
 
-              	$sql1 =	"INSERT INTO tab_usua (cedul_usua, nombr_usua, apeli_usua, gener_usua, civil_usua, nivel_usua, telef_usua, email_usua, image_usua, estad_usua, munic_usua, direc_usua, usuar_usua, contr_usua, statu_usua, ident_tipo) VALUES ('$cedul_usua', '$nombr_usua', '$apeli_usua', '$gener_usua', '$civil_usua', '$nivel_usua', '$telef_usua', '$email_usua', '$image_usua', '$estad_usua', '$munic_usua', '$direc_usua', '$usuar_usua', '$contr_usua', '$statu_usua', '$ident_tipo') ";
+              	$sql1 =	"REPLACE INTO tab_usua (cedul_usua, nombr_usua, apeli_usua, gener_usua, civil_usua, nivel_usua, telef_usua, email_usua, image_usua, estad_usua, munic_usua, direc_usua, usuar_usua, contr_usua, statu_usua, ident_tipo) VALUES ('$cedul_usua', '$nombr_usua', '$apeli_usua', '$gener_usua', '$civil_usua', '$nivel_usua', '$telef_usua', '$email_usua', '$image_usua', '$estad_usua', '$munic_usua', '$direc_usua', '$usuar_usua', '$contr_usua', '$statu_usua', '$ident_tipo')";
               	$result1 = $this->con->query($sql1);
 
               	if($result1 == 1): 
