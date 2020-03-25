@@ -8,7 +8,7 @@ if($action == 'ajax'){
 
 	$tables="tab_usua";
 	$campos="*";
-	$sWhere=" (tab_usua.nombr_usua LIKE '%".$query."%' OR tab_usua.apeli_usua LIKE '%".$query."%') AND tab_usua.statu_usua = 1 AND tab_usua.ident_tipo = 3";
+	$sWhere=" (tab_usua.cedul_usua LIKE '%".$query."%' OR tab_usua.nombr_usua LIKE '%".$query."%' OR tab_usua.apeli_usua LIKE '%".$query."%') AND tab_usua.statu_usua = 1 AND tab_usua.ident_tipo = 3";
 	$sWhere.=" order by tab_usua.ident_usua";
 	
 	// Paginacion

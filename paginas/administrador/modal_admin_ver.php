@@ -32,7 +32,6 @@ $result_user = mysqli_num_rows($query_user);
 $data_user = mysqli_fetch_array($query_user);
 
 	$ident_usua = $data_user['ident_usua'];
-  $tipce_usua = $data_user['tipce_usua'];
   $cedul_usua = $data_user['cedul_usua'];
   $nombr_usua = $data_user['nombr_usua'];
   $apeli_usua = $data_user['apeli_usua'];
@@ -70,61 +69,61 @@ $data_user = mysqli_fetch_array($query_user);
         <hr>
         <div class="form-row">
           <div class="col form-group">
-            <label class="form-label">Tipo de Usuario: </label>
+            <label class="form-label">Tipo de Usuario: </label><br>
             <label><?php echo $nombr_tipo; ?></label>
           </div>
           <div class="col form-group">
-            <label class="form-label">Cédula de Identidad: </label>
-            <label><?php echo $tipce_usua; ?>-<?php echo $cedul_usua; ?></label>
+            <label class="form-label">Cédula de Identidad: </label><br>
+            <label><?php echo $cedul_usua; ?></label>
           </div>
           <div class="col form-group">
-            <label class="form-label">Nombre: </label>
+            <label class="form-label">Nombre: </label><br>
             <label><?php echo $nombr_usua; ?></label>
           </div>
           <div class="col form-group">
-            <label class="form-label">Apellido: </label>
+            <label class="form-label">Apellido: </label><br>
             <label><?php echo $apeli_usua; ?></label>
           </div>
         </div>
         <hr>
         <div class="form-row">
           <div class="col form-group">
-            <label class="form-label">Genero: </label>
+            <label class="form-label">Genero: </label><br>
             <label><?php echo $gener_usua; ?></label>
           </div>
           <div class="col form-group">
-            <label class="form-label">Estado Civil: </label>
+            <label class="form-label">Estado Civil: </label><br>
             <label><?php echo $civil_usua; ?></label>
           </div>
           <div class="col form-group">
-            <label class="form-label">Nivel de Instrucción: </label>
+            <label class="form-label">Nivel de Instrucción: </label><br>
             <label><?php echo $nivel_usua; ?></label>
           </div>
         </div>
         <div class="form-row">
           <div class="col form-group">
-            <label class="form-label">Teléfono: </label>
+            <label class="form-label">Teléfono: </label><br>
             <label><?php echo $telef_usua; ?></label>
           </div>
           <div class="col form-group">
-            <label class="form-label">E-Mail: </label>
+            <label class="form-label">E-Mail: </label><br>
             <label><?php echo $email_usua; ?></label>
           </div>
         </div>
         <hr>
         <div class="form-row">
            <div class="col form-group">
-            <label class="form-label">Estado: </label>
+            <label class="form-label">Estado: </label><br>
             <label><?php echo $estad_usua; ?></label>
           </div>
           <div class="col form-group">
-            <label class="form-label">Municipio: </label>
+            <label class="form-label">Municipio: </label><br>
             <label><?php echo $munic_usua; ?></label>
           </div>
         </div>
         <div class="form-row">
           <div class="col form-group">
-            <label class="form-label">Dirección: </label>
+            <label class="form-label">Dirección: </label><br>
             <label><?php echo $direc_usua; ?></label>
           </div>
         </div>

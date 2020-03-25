@@ -19,7 +19,7 @@
 	  	<form method="post" enctype="multipart/form-data">
 		    <div class="card-body">
 		      <h5 class="card-title text-center"><b>Importación</b></h5>
-		      <p class="card-subtitle text-center">Transferencia de Datos desde Archivos .TXT y .CSV</p>
+		      <p class="card-subtitle text-center">Transferencia de Datos desde Archivos .CSV</p>
 		      <br>
 		      <div class="col-lg-4" align="center">					
 						<input type="file" class="filestyle" id="file" name="file" alt="Archvio de Importacion" data-btnClass="btn-primary" data-text="Subir" data-placeholder="Seleccione un Archivo..." accept=".csv,text/csv">

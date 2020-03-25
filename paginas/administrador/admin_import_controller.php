@@ -40,7 +40,7 @@
 			    	</thead>
 			        
 		        <?php 
-		        	while (($column1 = fgetcsv($file1, 10000, ";")) !== FALSE) { 
+		        	while (($column1 = fgetcsv($file1, 100000, ";")) !== FALSE) { 
 
 			          $counter1++;	   
 	        	 		$cedul_usua = $column1[0];
@@ -60,7 +60,7 @@
 	              $statu_usua = $column1[14];
 	              $ident_tipo = $column1[15];
 
-              	$sql1 =	"REPLACE INTO tab_usua (cedul_usua, nombr_usua, apeli_usua, gener_usua, civil_usua, nivel_usua, telef_usua, email_usua, image_usua, estad_usua, munic_usua, direc_usua, usuar_usua, contr_usua, statu_usua, ident_tipo) VALUES ('$cedul_usua', '$nombr_usua', '$apeli_usua', '$gener_usua', '$civil_usua', '$nivel_usua', '$telef_usua', '$email_usua', '$image_usua', '$estad_usua', '$munic_usua', '$direc_usua', '$usuar_usua', '$contr_usua', '$statu_usua', '$ident_tipo')";
+              	$sql1 =	"INSERT INTO tab_usua (cedul_usua, nombr_usua, apeli_usua, gener_usua, civil_usua, nivel_usua, telef_usua, email_usua, image_usua, estad_usua, munic_usua, direc_usua, usuar_usua, contr_usua, statu_usua, ident_tipo) VALUES ('$cedul_usua', '$nombr_usua', '$apeli_usua', '$gener_usua', '$civil_usua', '$nivel_usua', '$telef_usua', '$email_usua', '$image_usua', '$estad_usua', '$munic_usua', '$direc_usua', '$usuar_usua', '$contr_usua', '$statu_usua', '$ident_tipo') ON DUPLICATE KEY UPDATE cedul_usua='$cedul_usua', nombr_usua='$nombr_usua', apeli_usua='$apeli_usua', gener_usua='$gener_usua', civil_usua='$civil_usua', nivel_usua='$nivel_usua', telef_usua='$telef_usua', email_usua='$email_usua', image_usua='$image_usua', estad_usua='$estad_usua', munic_usua='$munic_usua', direc_usua='$direc_usua', usuar_usua='$usuar_usua', contr_usua='$contr_usua', statu_usua='$statu_usua', ident_tipo='$ident_tipo'";
               	$result1 = $this->con->query($sql1);
 
               	if($result1 == 1): 
@@ -85,6 +85,7 @@
 			    <table class="table">
 			    	<thead class="text-center">
 			    		<th> # </th>
+			    		<th> ID </th>
 			    		<th> Proyecto </th>
 			    		<th> Área </th>
 			    		<th> Motor </th>
@@ -92,7 +93,7 @@
 			    	</thead>
 
 						<?php 
-		        	while (($column2 = fgetcsv($file2, 10000, ";")) !== FALSE) { 
+		        	while (($column2 = fgetcsv($file2, 100000, ";")) !== FALSE) { 
 
 			          $counter2++;
 			          $ident_proy = $column2[16];

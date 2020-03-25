@@ -102,7 +102,7 @@
                     <div class="form-row">
                       <div class="col form-group">
                         <label class="form-label" for="cedul_usua">Cédula: </label><br>
-                        <label><?php echo $data_user['tipce_usua']; ?>-<?php echo $data_user['cedul_usua']; ?></label>
+                        <label><?php echo $data_user['cedul_usua']; ?></label>
                       </div>
                       <div class="col form-group">
                         <label class="form-label" for="nombr_usua">Nombre: </label><br>

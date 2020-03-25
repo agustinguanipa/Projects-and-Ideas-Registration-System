@@ -10,7 +10,7 @@ if($action == 'ajax'){
 	$tables2="tab_usua";
 	$campos="*";
 	$on="tab_proy.ident_usua = tab_usua.ident_usua";
-	$sWhere=" (tab_proy.nombr_proy LIKE '%".$query."%' OR tab_proy.descr_proy LIKE '%".$query."%') AND tab_proy.statu_proy = 0";
+	$sWhere=" (tab_proy.nombr_proy LIKE '%".$query."%' OR tab_proy.descr_proy LIKE '%".$query."%' OR tab_proy.areaa_proy LIKE '%".$query."%' OR tab_proy.motor_proy LIKE '%".$query."%') AND tab_proy.statu_proy = 0";
 	$sWhere.=" order by tab_proy.ident_proy";
 	
 	// Paginacion
