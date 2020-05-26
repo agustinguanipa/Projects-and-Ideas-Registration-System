@@ -109,22 +109,12 @@
             <span class="menu-collapsed">Proyectos</span>
         </div>
       </a>
-      <a href="#submenu1" data-toggle="collapse" aria-expanded="false" class="bg-light text-dark list-group-item list-group-item-action flex-column align-items-start tamano-elemento-sidebar">
-          <div class="d-flex w-100 justify-content-start align-items-center">
+      <a href="admin_admins.php" aria-expanded="false" class="bg-light text-dark list-group-item list-group-item-action flex-column align-items-start tamano-elemento-sidebar">
+        <div class="d-flex w-100 justify-content-start align-items-center">
             <span class="fa fa-cogs fa-fw mr-3"></span> 
             <span class="menu-collapsed">Administración</span>
-            <span class="fa fa-caret-down ml-auto"></span>
-          </div>
-      </a>
-        <!-- Submenu -->
-        <div id='submenu1' class="collapse sidebar-submenu">
-          <a href="admin_admins.php" class="list-group-item list-group-item-action bg-light text-dark">
-            <span class="menu-collapsed">Usuarios</span>
-          </a>
-          <a href="admin_configuracion.php" class="list-group-item list-group-item-action bg-light text-dark">
-            <span class="menu-collapsed">Configuración</span>
-          </a>
         </div>
+      </a>
       <a href="admin_soporte.php" aria-expanded="false" class="bg-light text-dark list-group-item list-group-item-action flex-column align-items-start tamano-elemento-sidebar">
         <div class="d-flex w-100 justify-content-start align-items-center">
             <span class="fa fa-tools fa-fw mr-3"></span> 
