@@ -49,13 +49,8 @@
           </div>
           <div class="form-row">        
             <div class="col form-group">
-              <label class="form-label" for="descr_proy"><b>Descripción Larga: </b></label>
+              <label class="form-label" for="descr_proy"><b>Descripción: </b></label>
               <textarea class="form-control" name="descr_proy" autocomplete="off" id="descr_proy" maxlength="5000"></textarea>
-              <script>
-                // Replace the <textarea id="editor1"> with a CKEditor
-                // instance, using default configuration.
-                CKEDITOR.replace( 'descr_proy' );
-              </script>
             </div>
           </div> 
           <div class="form-row">
@@ -127,12 +122,7 @@
           <div class="form-row">        
             <div class="col form-group">
               <label class="form-label" for="edit_descr_proy"><b>Descripción: </b></label>
-              <textarea class="form-control" name="edit_descr_proy" autocomplete="off" id="edit_descr_proy" maxlength="5000"><?php echo $edit_descr_proy; ?></textarea>
-              <script>
-                // Replace the <textarea id="editor1"> with a CKEditor
-                // instance, using default configuration.
-                CKEDITOR.replace( 'edit_descr_proy' );
-              </script>
+              <textarea class="form-control" name="edit_descr_proy" autocomplete="off" id="edit_descr_proy" maxlength="5000"><?php echo $edit_descr_proy; ?></textarea>    
             </div>
           </div> 
           <div class="form-row">
